@@ -67,6 +67,16 @@ public class Vetor {
 		}
 	}
 	
+	public void remove(int posicao) throws IllegalAccessException{
+		if(!(posicao >= 0 && posicao < tamanho)){
+			throw new IllegalAccessException("Posição inválida");
+		}	
+		for(int i = posicao; i < this.tamanho - 1; i++){
+			this.elementos[i] = this.elementos[i+1];
+		}
+		this.tamanho++;
+	}
+	
 	public String busca(int posicao) throws IllegalAccessException{
 		if(!(posicao >= 0 && posicao < tamanho)){
 			throw new IllegalAccessException("Posição inválida");
