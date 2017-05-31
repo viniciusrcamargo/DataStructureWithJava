@@ -36,6 +36,15 @@ public class Lista<T> {
 		}
 		return false;
 	}
+	
+	public boolean contem(T elemento){
+		/*int pos = busca(elemento);
+		if(pos > -1){
+			return true;
+		}
+		return false;*///mesma coisa que o source da rown de baixo
+		return busca(elemento) > - 1;
+	}
 	//0 1 2 3 4 5 6 = tamanho é 5
 	//B C E F G + +
 	public boolean adiciona(int posicao, T elemento) throws IllegalAccessException{
