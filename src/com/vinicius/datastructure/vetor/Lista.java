@@ -82,6 +82,13 @@ public class Lista<T> {
 		this.tamanho++;
 	}
 	
+	public void remove(T elemento) throws IllegalAccessException{
+		int pos = this.busca(elemento);
+		if(pos > -1){
+			this.remove(pos);
+		}
+	}
+	
 	public Object busca(int posicao) throws IllegalAccessException{
 		if(!(posicao >= 0 && posicao < tamanho)){
 			throw new IllegalAccessException("Posição inválida");
@@ -118,5 +125,14 @@ public class Lista<T> {
 		}
 		s.append( "]");
 		return s.toString();
+	}
+	
+	public int ultimoIndice(T elemento){
+		for(int i = this.tamanho-1; i >=0; i--){
+			if(this.elementos[i].equals(elemento)){
+				return i;
+			}
+		}
+		return -1;
 	}
 }
