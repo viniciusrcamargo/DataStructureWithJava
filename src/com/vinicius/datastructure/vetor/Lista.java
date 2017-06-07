@@ -82,6 +82,10 @@ public class Lista<T> {
 		this.tamanho++;
 	}
 	
+	public T obtem(int posicao) throws IllegalAccessException{
+		return (T) this.busca(posicao);
+	}
+	
 	public void remove(T elemento) throws IllegalAccessException{
 		int pos = this.busca(elemento);
 		if(pos > -1){
@@ -105,6 +109,19 @@ public class Lista<T> {
 		return -1;
 	}
 	
+	public void limpar(){
+		//opção1
+		this.elementos = (T[]) new Object[this.elementos.length];
+		/*
+		opção 2
+		this.tamanho = 0;
+		
+		opção 3
+		for(int i =0; i < this.tamanho; i++){
+			this.elementos[i] = null;
+		}
+		this.tamanho = 0;*/
+	}
 	
 	
 	public int tamanho(){
