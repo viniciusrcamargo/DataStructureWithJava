@@ -18,9 +18,82 @@ public class Exer06 {
 		int opc = 1;
 		while(opc != 0){
 			opc = obterOpcaoMenu(scan);
+			
+			switch (opc) {
+			case 1:
+				adicionarContato(scan, lista);
+				break;
+			case 2:
+				adicionarContatoPosicao(scan, lista);
+				break;
+
+			default:
+				break;
+			}
 		}
 		System.out.println("Usuário digitou 0 programa encerrado!");
 	}
+	
+	private static void adicionarContato(Scanner scan, Lista<Contato> lista) throws Exception{
+		System.out.println("Criando um contato, entre com as informações");
+		String nome = leInformacao("Entre com o nome", scan);
+		String telefone = leInformacao("Entre com o telefone", scan);
+		String email = leInformacao("Entre com o e-mail", scan);
+		
+		Contato contato = new Contato(nome, telefone, email);
+		
+		lista.adiciona(contato);
+		
+		System.out.println("Contato adicionado com sucesso");
+		System.out.println(contato);
+	}
+	
+	private static void adicionarContatoPosicao(Scanner scan, Lista<Contato> lista) throws Exception{
+		System.out.println("Criando um contato, entre com as informações");
+		String nome = leInformacao("Entre com o nome", scan);
+		String telefone = leInformacao("Entre com o telefone", scan);
+		String email = leInformacao("Entre com o e-mail", scan);
+		
+		Contato contato = new Contato(nome, telefone, email);
+		
+		int pos = leInformacaoInt("Entre com a posição a adicionar o contato",scan);
+		
+		try{
+		lista.adiciona(contato);
+		System.out.println("Contato adicionado com sucesso");
+		System.out.println(contato);
+		}catch(Exception i){
+			System.out.println("Posição inválida, contato não adicionado");
+		}	
+	}
+	
+	
+	
+	private static String leInformacao(String msg, Scanner scan){
+		System.out.println(msg);
+		String entrada = scan.nextLine();
+		return entrada;
+	}
+	
+	private static int leInformacaoInt(String msg, Scanner scan){
+		boolean entradaValida = false;
+		int num = 0;
+		
+		while(!entradaValida){
+		try{
+		System.out.println(msg);
+		String entrada = scan.nextLine();
+		
+		num = Integer.parseInt(entrada);
+		entradaValida = true;
+		}catch(Exception e){
+			System.out.println("Entrada inválida");
+		}
+		}
+		
+		return num;
+	}
+	
 	
 	private static int obterOpcaoMenu(Scanner scan){
 		boolean entradaValida = false;
