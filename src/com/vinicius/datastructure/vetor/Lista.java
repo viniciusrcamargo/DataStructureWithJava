@@ -27,7 +27,7 @@ public class Lista<T> {
 		}
 	}
 	
-	public boolean adiciona2(T elemento){
+	protected boolean adiciona2(T elemento){
 		this.aumentaCapacidade();
 		if(this.tamanho < this.elementos.length){
 			this.elementos[this.tamanho] = elemento;
