@@ -2,8 +2,8 @@ package com.vinicius.datastructure.base;
 
 public class EstruturaEstatica<T> {
 	
-	private T[] elementos;
-	private int tamanho;
+	protected T[] elementos;
+	protected int tamanho;
 	
 	public EstruturaEstatica(int capacidade){
 		this.elementos = (T[]) new Object[capacidade];
@@ -12,6 +12,10 @@ public class EstruturaEstatica<T> {
 	
 	public EstruturaEstatica(){
 		this(10);
+	}
+	
+	public boolean estaVazia(){
+		return this.tamanho == 0;
 	}
 	
 	protected boolean adiciona2(T elemento){
